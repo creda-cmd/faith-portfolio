@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section id="about" className="section">
       <div className="section__head">
-        <span className="section__kicker">01 — About</span>
+        <span className="section__kicker">01 — About Me</span>
         <h2 className="section__title">Secure by design, full-stack by craft</h2>
       </div>
 

@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react'
 
 const links = [
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
+  { href: '#about', label: 'About Me' },
   { href: '#experience', label: 'Experience' },
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
@@ -33,9 +31,6 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a className="nav__cta" href="#contact" onClick={() => setOpen(false)}>
-            Get in touch
-          </a>
         </nav>
 
         <button
