@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 
 const links = [
-  { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#contact', label: 'Contact Me' },
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'contact', label: 'Contact Me' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ active, onSelect }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const menuRef = useRef(null)
@@ -33,25 +33,35 @@ export default function Navbar() {
   return (
     <header className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
       <div className="nav__inner">
-        <a href="#home" className="nav__brand">
+        <a href="#" className="nav__brand" onClick={(e) => { e.preventDefault(); onSelect('home') }}>
           FM<span>.</span>
         </a>
 
         <div className="nav__dropdown" ref={menuRef}>
           <button
-            className="nav__dropdown-toggle"
+            className="nav__hamburger"
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
-            Menu
-            <span className={`nav__arrow ${open ? 'nav__arrow--open' : ''}`}>&#9662;</span>
+            <span />
+            <span />
+            <span />
           </button>
 
           {open && (
             <nav className="nav__dropdown-menu">
               {links.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
+                <a
+                  key={l.id}
+                  href="#"
+                  className={active === l.id ? 'nav__dropdown-active' : ''}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    onSelect(l.id)
+                    setOpen(false)
+                  }}
+                >
                   {l.label}
                 </a>
               ))}
