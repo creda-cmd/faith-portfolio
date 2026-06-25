@@ -10,10 +10,20 @@ export default function App() {
     <>
       <Navbar />
       <main>
+        <section id="home" className="section">
+          <div className="section__head">
+            <h2 className="section__title">Home</h2>
+          </div>
+        </section>
         <About />
-        <Experience />
         <Skills />
+        <Experience />
         <Projects />
+        <section id="contact" className="section">
+          <div className="section__head">
+            <h2 className="section__title">Contact Me</h2>
+          </div>
+        </section>
       </main>
     </>
   )
