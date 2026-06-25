@@ -48,31 +48,43 @@ body::before {
     linear-gradient(180deg, #060b18 0%, #040810 100%);
 }
 
-/* Tech grid lines background */
+/* Tech diagonal lines background */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
   background-image:
-    linear-gradient(rgba(59, 130, 246, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px),
-    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-  background-size:
-    100px 100px,
-    100px 100px,
-    20px 20px,
-    20px 20px;
-  animation: gridMove 20s linear infinite;
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 80px,
+      rgba(59, 130, 246, 0.04) 80px,
+      rgba(59, 130, 246, 0.04) 81px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 120px,
+      rgba(96, 165, 250, 0.03) 120px,
+      rgba(96, 165, 250, 0.03) 121px
+    ),
+    repeating-linear-gradient(
+      -30deg,
+      transparent,
+      transparent 200px,
+      rgba(59, 130, 246, 0.06) 200px,
+      rgba(59, 130, 246, 0.06) 201px
+    );
+  animation: lineShift 30s linear infinite;
 }
 
-@keyframes gridMove {
+@keyframes lineShift {
   0% {
-    transform: translateY(0);
+    transform: translateX(0) translateY(0);
   }
   100% {
-    transform: translateY(100px);
+    transform: translateX(80px) translateY(80px);
   }
 }
 
