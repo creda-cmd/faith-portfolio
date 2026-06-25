@@ -3,10 +3,34 @@
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 96px 24px;
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.3;
 }
 
 .section__head {
   margin-bottom: 44px;
+  position: relative;
+}
+
+.section__head::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin-top: 16px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 8px var(--accent-glow);
+  border-radius: 2px;
 }
 
 .section__kicker {
